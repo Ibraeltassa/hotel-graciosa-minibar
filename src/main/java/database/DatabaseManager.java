@@ -95,12 +95,46 @@ public class DatabaseManager {
     }
 
 
+    public static void visualizarDados() {
+        String sqlQuartos = "SELECT * FROM quartos;";
+        String sqlProdutos = "SELECT * FROM produtos;";
+
+        try(Connection connection = connect();
+            java.sql.Statement statement = connection.createStatement()) {
+
+            System.out.println("\n\uD83D\uDCCC Quartos cadastrados: ");
+            java.sql.ResultSet resultSetQuartos = statement.executeQuery(sqlQuartos);
+            while(resultSetQuartos.next()) {
+                System.out.println("ID: " + resultSetQuartos.getInt("id") +
+                        ", Nome: " + resultSetQuartos.getString("nome") +
+                        ", Preço: " + resultSetQuartos.getDouble("preco"));
+            }
+
+
+            System.out.println("\n\uD83D\uDCCC Produtos cadastrados: ");
+            java.sql.ResultSet resultSetProdutos = statement.executeQuery(sqlProdutos);
+            while(resultSetProdutos.next()) {
+                System.out.println("ID: " + resultSetQuartos.getInt("id") +
+                        ", Nome: " + resultSetQuartos.getString("nome") +
+                        ", Preço: " + resultSetQuartos.getDouble("preco"));
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao visualizar dados: " + e.getMessage());
+        }
+
+
+    }
+
+
 
     // Testando a conexão
     public static void main(String[] args) {
         Connection connection = connect(); //Abre conexão
         criarTabelas(); // Cria tabelas caso não existam
         inserirDadosIniciais(); //Insere dados iniciais
+        visualizarDados(); // Lista os dados criados
         close(connection); //Fecha conexão
     }
 
