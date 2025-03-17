@@ -133,11 +133,14 @@ public class DatabaseManager {
 
     public static void inserirDadosIniciais() {
         String sqlInsertQuartos = "INSERT INTO quartos (nome, preco) SELECT 'Quarto 202', 150.00 " +
-                "WHERE NOT EXISTS (SELECT 1 FROM quartos WHERE nome = 'Quarto 202');";
+                "WHERE NOT EXISTS (SELECT 1 FROM quartos WHERE nome = 'Quarto 202');" +
+                "INSERT INTO quartos (nome, preco) SELECT 'Quarto 201', 200.00 " +
+                "WHERE NOT EXISTS (SELECT 1 FROM quartos WHERE nome = 'Quarto 201');";
 
         String sqlInsertProdutos = "INSERT INTO produtos (nome, preco) SELECT 'Água Mineral', 5.00 " +
-                "WHERE NOT EXISTS (SELECT 1 FROM produtos WHERE nome = 'Água Mineral');";
-
+                "WHERE NOT EXISTS (SELECT 1 FROM produtos WHERE nome = 'Água Mineral');" +
+                "INSERT INTO produtos (nome, preco) SELECT 'Coca-Cola', 7.00 " +
+                "WHERE NOT EXISTS (SELECT 1 FROM produtos WHERE nome = 'Coca-Cola');";
 
 
         try (Connection connection = connect();
