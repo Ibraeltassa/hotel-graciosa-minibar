@@ -13,7 +13,7 @@ public class DatabaseManager {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url);
-            System.out.println("Conexão com SQLite feita com secesso");
+            System.out.println("Conexão com SQLite feita com sucesso");
         } catch (SQLException e) {
             System.out.println("Erro ao conectar ao SQLite: " + e.getMessage());
         }
