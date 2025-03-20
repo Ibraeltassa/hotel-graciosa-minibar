@@ -16,7 +16,8 @@ public class Main {
         //quartoService.cadastrarQuarto("Quarto 205", 250.0);
 
         QuartoDAO quartoDAO = new QuartoDAO();
-        quartoDAO.atualizarQuarto(1, "Quarto 202", 175.00);
+        //quartoDAO.atualizarQuarto(1, "Quarto 202", 175.00);
+        quartoDAO.excluirQuarto(1);
 
     }
 

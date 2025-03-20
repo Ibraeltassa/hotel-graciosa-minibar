@@ -48,4 +48,25 @@ public class QuartoDAO {
         }
     }
 
+    public void excluirQuarto(int id) {
+        String sql = "DELETE FROM quartos WHERE id = ?";
+
+        try (Connection connection = DatabaseManager.connect();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, id);
+            int linhasAfetasdas = statement.executeUpdate();
+
+            if (linhasAfetasdas > 0) {
+                System.out.println("✅ Quarto excluído com sucesso!");
+            } else {
+                System.out.println("❌ Nenhum quarto encontrado com esse ID.");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("❌ Erro ao excluir quarto: " + e.getMessage());
+        }
+
+    }
+
 }
