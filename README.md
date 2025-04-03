@@ -1,6 +1,7 @@
 # 🏨 Hotel Graciosa Minibar
 
-Sistema para controle e automação do minibar em hotéis, permitindo a gestão de produtos, quartos e checkout automático.
+Sistema para gerenciamento e automação do consumo de minibar em hotéis.  
+Permite o cadastro e controle de produtos, quartos, registros de consumo e checkout automatizado dos hóspedes.
 
 ### Tecnologias Utilizadas
 - **Front-End:** React.js ⚛️
